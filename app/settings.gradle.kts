@@ -1,1 +1,1 @@
-rootProject.name = "like_api"
+rootProject.name = "app"

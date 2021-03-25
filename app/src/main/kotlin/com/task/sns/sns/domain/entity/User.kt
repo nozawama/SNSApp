@@ -1,7 +1,8 @@
 package com.task.sns.sns.domain.entity
 
-import org.jetbrains.annotations.NotNull
 import javax.persistence.*
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 
 @Entity
 data class User (
@@ -10,18 +11,22 @@ data class User (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @field:NotNull
     @Column(name = "user_id", columnDefinition="INT UNSIGNED")
-    var userId : Int = 0,
+    var userId: Int = 0,
 
-    @field:NotNull
-    @Column(nullable = false, columnDefinition="VARCHAR(50)")
-    var name : String = "",
+    @field:NotBlank
+    @Column(columnDefinition="VARCHAR(50)", nullable = false)
+    var name: String = "",
 
-    @field:NotNull
+    @field:NotBlank
     @Column(name = "login_id", columnDefinition="VARCHAR(16)", unique = true, nullable = false)
-    var loginId : String = "",
+    var loginId: String = "",
 
-    @field:NotNull
-    @Column(nullable = false, columnDefinition="VARCHAR(64)")
-    var password : String = ""
+    @field:NotBlank
+    @Column(columnDefinition="VARCHAR(64)", nullable = false)
+    var password: String = "",
+
+//    @OneToMany(mappedBy = "user")
+//    @Column(name = "posts")
+//    var posts: MutableList<Post>?
 
 )

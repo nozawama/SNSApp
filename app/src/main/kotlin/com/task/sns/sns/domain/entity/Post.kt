@@ -1,28 +1,32 @@
 package com.task.sns.sns.domain.entity
 
-import org.jetbrains.annotations.NotNull
 import java.util.*
 import javax.persistence.*
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 
 @Entity
-data class Post (
+data class Post(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @field:NotNull
     @Column(name = "post_id", columnDefinition = "INT UNSIGNED")
-    var postId : Int = 0,
+    var postId: Int = 0,
+
+    @ManyToOne
+    var user: User,
+
+//    @field:NotNull
+//    @Column(name = "user_id", columnDefinition = "INT UNSIGNED")
+//    var userId: Int = 0,
+
+    @field:NotBlank
+    @Column(columnDefinition = "VARCHAR(140)", nullable = false)
+    var comment: String = "",
 
     @field:NotNull
-    @Column(name = "user_id", columnDefinition = "INT UNSIGNED")
-    var userId : Int = 0,
-
-    @field:NotNull
-    @Column(columnDefinition = "VARCHAR(140)")
-    var comment : String = "",
-
-    @field:NotNull
-    @Column(name = "create_at")
-    var createAt : Date = Date()
+    @Column(name = "create_at", nullable = false)
+    var createAt: Date = Date()
 
 )
