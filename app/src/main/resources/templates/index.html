@@ -14,7 +14,7 @@
 
             <table border="1" class="Area_posts_table">
                 <tr class="Area_post_user_name_and_comment">
-                    <td class="Area_post_user_name" th:text="*{postId}">
+                    <td class="Area_post_user_name" th:text="*{user.name}">
 
                     </td>
                     <td class="Area_post_comment" th:text="*{comment}">
@@ -22,7 +22,7 @@
                     </td>
                 </tr>
                 <tr class="Area_post_user_login_id">
-                    <td class="Area_post_create_at" th:text="*{userId}">
+                    <td class="Area_post_create_at" th:text="*{user.loginId}">
 
                     </td>
                     <td class="Area_post_create_at" th:text="*{createAt}">
@@ -40,7 +40,7 @@
                 <tr>
                     <td class="head">ID</td>
                     <td class="body">
-                        <input type="text" name="userId" size="16">
+                        <input type="text" name="user" size="16">
                     </td>
                 </tr>
                 <tr>
@@ -60,8 +60,8 @@
     </div>
 
     <div class="Link_test">
-        <a th:href="@{/user}">ユーザ一覧ページ(仮)</a>
-        <a th:href="@{/registration}">会員登録ページ(仮)</a>
+        <a th:href="@{/user}">ユーザ一覧ページ(確認)</a>
+        <a th:href="@{/registration}">ユーザ登録ページ(仮)</a>
     </div>
 
 </body>
