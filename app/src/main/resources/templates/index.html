@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SampleSNS</title>
+</head>
+<body>
+
+    <header class="Area_header">サンプルSNS</header>
+
+    <div class="Area_posts" th:each="post:${posts}" th:object="${post}">
+        <div>
+
+            <table border="1" class="Area_posts_table">
+                <tr class="Area_post_user_name_and_comment">
+                    <td class="Area_post_user_name" th:text="*{postId}">
+
+                    </td>
+                    <td class="Area_post_comment" th:text="*{comment}">
+
+                    </td>
+                </tr>
+                <tr class="Area_post_user_login_id">
+                    <td class="Area_post_create_at" th:text="*{userId}">
+
+                    </td>
+                    <td class="Area_post_create_at" th:text="*{createAt}">
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="Area_send">
+        <form th:action="@{/post}" th:method="post">
+            <table border="1" class="Area_send_table">
+                <tr>
+                    <td class="head">ID</td>
+                    <td class="body">
+                        <input type="text" name="userId" size="16">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="head">内容</td>
+                    <td class="body">
+                        <input type="text" name="comment" size="140">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">送信</button>
+                        <button type="reset">リセット</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="Link_test">
+        <a th:href="@{/user}">ユーザ一覧ページ(仮)</a>
+        <a th:href="@{/registration}">会員登録ページ(仮)</a>
+    </div>
+
+</body>
+</html>
