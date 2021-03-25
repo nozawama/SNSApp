@@ -19,7 +19,7 @@ class PostController {
         postRepository.save(
             Post(
                 postRequest.postId,
-                postRequest.userId,
+                postRequest.user,
                 postRequest.comment,
                 postRequest.createAt
             )
@@ -33,7 +33,7 @@ class PostController {
     @GetMapping("/")
     fun getPostList(model: Model) : String {
 
-        model.addAttribute("posts", postRepository.findAll())
+        model.addAttribute("posts", postRepository.findAll().sortedByDescending { it.createAt })
 
         return "index"
     }
