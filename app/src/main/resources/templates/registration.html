@@ -9,7 +9,7 @@
     <header class="Area_header">ユーザ登録</header>
 
     <div class="Area_register">
-        <form th:action="@{/user}" th:method="post">
+        <form th:action="@{/registration}" th:method="post">
             <table border="1" class="Area_register_table">
                 <tr>
                     <td class="head">名前</td>
@@ -38,12 +38,6 @@
             </table>
         </form>
     </div>
-
-    <div class="Link_test">
-        <a th:href="@{/}">投稿一覧ページ(仮)</a>
-        <a th:href="@{/user}">ユーザ一覧ページ(確認)</a>
-    </div>
-
 
 </body>
 </html>

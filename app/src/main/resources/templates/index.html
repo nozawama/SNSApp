@@ -1,68 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SampleSNS</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
 </head>
 <body>
 
-    <header class="Area_header">サンプルSNS</header>
+<header class="Area_header">ログイン</header>
 
-    <div class="Area_posts" th:each="post:${posts}" th:object="${post}">
-        <div>
+<div class="Area_register">
+    <form th:action="@{/login}" th:method="post">
+        <table border="1" class="Area_register_table">
+            <tr>
+                <td class="head">ID</td>
+                <td class="body">
+                    <input type="text" id="loginId" name="loginId" size="16">
+                </td>
+            </tr>
+            <tr>
+                <td class="head">パスワード</td>
+                <td class="body">
+                    <input type="password" id="password" name="password" size="64">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">送信</button>
+                    <button type="reset">リセット</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
-            <table border="1" class="Area_posts_table">
-                <tr class="Area_post_user_name_and_comment">
-                    <td class="Area_post_user_name" th:text="*{user.name}">
-
-                    </td>
-                    <td class="Area_post_comment" th:text="*{comment}">
-
-                    </td>
-                </tr>
-                <tr class="Area_post_user_login_id">
-                    <td class="Area_post_create_at" th:text="*{user.loginId}">
-
-                    </td>
-                    <td class="Area_post_create_at" th:text="*{createAt}">
-
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
-
-    <div class="Area_send">
-        <form th:action="@{/post}" th:method="post">
-            <table border="1" class="Area_send_table">
-                <tr>
-                    <td class="head">ID</td>
-                    <td class="body">
-                        <input type="text" name="user" size="16">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="head">内容</td>
-                    <td class="body">
-                        <input type="text" name="comment" size="140">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="submit">送信</button>
-                        <button type="reset">リセット</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-
-    <div class="Link_test">
-        <a th:href="@{/user}">ユーザ一覧ページ(確認)</a>
-        <a th:href="@{/registration}">ユーザ登録ページ(仮)</a>
-    </div>
+<div class="Link_test">
+    <a th:href="@{/registration}">ユーザ登録ページ(仮)</a>
+</div>
 
 </body>
 </html>
