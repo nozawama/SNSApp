@@ -25,7 +25,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	// implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-security")
 	// https://mvnrepository.com/artifact/javax.validation/validation-api
 	implementation("javax.validation:validation-api:2.0.1.Final")
 	// https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
