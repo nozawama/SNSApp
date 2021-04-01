@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SampleSNS</title>
+</head>
+<body>
+
+    <header class="Area_header">サンプルSNS</header>
+
+    <div class="Area_posts" th:each="post:${posts}" th:object="${post}">
+        <div>
+
+            <table border="1" class="Area_posts_table">
+                <tr class="Area_post_user_name_and_comment">
+                    <td class="Area_post_user_name" th:text="*{user.name}">
+
+                    </td>
+                    <td class="Area_post_comment" th:text="*{comment}">
+
+                    </td>
+                </tr>
+                <tr class="Area_post_user_login_id">
+                    <td class="Area_post_create_at" th:text="*{user.loginId}">
+
+                    </td>
+                    <td class="Area_post_create_at" th:text="*{createAt}">
+
+                    </td>
+                </tr>
+            </table>
+            <button th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
+        </div>
+    </div>
+
+    <div class="Area_send">
+        <form th:action="${user} ? @{/post} : @{/}" th:method="post">
+            <table border="1" class="Area_send_table">
+                <tr>
+                    <td class="head">Name</td>
+                    <td class="body">
+                        <input th:if="${user}" type="text" th:value="${user.name}" size="50" disabled>
+                    </td>
+                    <td class="head">ID</td>
+                    <td class="body">
+<!--                        <input type="text" name="user" size="16">-->
+<!--                        <input th:unless="${user}" type="text" name="user" size="16" th:value="${name}">-->
+                        <input th:if="${user}" type="text" th:value="${user.loginId}" size="16" disabled>
+                        <input th:if="${user}" type="hidden" name="user" th:value="${user.userId}">
+                        <div th:if="${#fields.hasErrors('user')}" class="alert-error" th:errors="*{name}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="head">内容</td>
+                    <td class="body" colspan="3">
+                        <textarea name="comment" rows="2" cols="70"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">送信</button>
+                        <button type="reset">リセット</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="Link_test">
+        <a th:href="@{/user}">ユーザ一覧ページ(確認)</a>
+        <a th:href="@{/logout}">ログアウト(仮)</a>
+    </div>
+
+</body>
+</html>
