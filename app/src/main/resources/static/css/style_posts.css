@@ -1,0 +1,109 @@
+.Area_posts{
+    float: left;
+}
+
+.Area_post {
+    width: 600px;
+    height: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.Area_post_user {
+    display: inline-block;
+    text-align: right;
+    width: 200px;
+    height: 150px;
+}
+
+.Area_post_user_login_id {
+    margin-top: 5px;
+}
+
+.Area_post_comment {
+    display: inline-block;
+    vertical-align: top;
+    width: 320px;
+    height: 150px;
+}
+
+.Area_post_comment_detail {
+    width: 320px;
+    height: 100px;
+    border: solid;
+    border-radius: 8px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.Area_post_information {
+    position: relative;
+    width: 320px;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.Button_post_delete {
+    position: absolute;
+    right: 0px;
+    bottom: 12px;
+}
+
+.Area_post_create_at {
+    position: absolute;
+    right: 48px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.Area_login_user {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+}
+
+.Image_login_user {
+    text-align: center;
+}
+
+.Area_login_user_profile {
+    float: left;
+    display: inline-block;
+    text-align: right;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.Area_login_user_profile b {
+    padding-right: 5px;
+}
+
+.Area_login_user_profile p {
+    padding-right: 5px;
+}
+
+.Logout_link {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.Logout_link a {
+    line-height: 50px;
+}
+
+.Area_login_user_login_id {
+    margin-top: 5px;
+}
+
+.Area_input_post {
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    width: 400px;
+    height: 320px;
+}
