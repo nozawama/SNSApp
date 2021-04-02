@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -24,12 +25,13 @@ class SecurityConfig @Autowired constructor(private val userRepository: UserRepo
         return BCryptPasswordEncoder()
     }
 
-//    override fun configure(web: WebSecurity) {
-//        // セキュリティ設定を無視
-//        web.ignoring().antMatchers(
-//            "/app"
-//        )
-//    }
+    override fun configure(web: WebSecurity) {
+        // セキュリティ設定を無視
+        web.ignoring().antMatchers(
+            "/css/**",
+            "/js/**"
+        )
+    }
 
     override fun configure(http: HttpSecurity) {
         // 認可の設定

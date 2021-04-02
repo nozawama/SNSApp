@@ -2,40 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href=@{/css/style.css} rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <body>
 
 <header class="Area_header">ログイン</header>
 
-<div class="Area_register">
+<div class="Area_login">
     <form th:action="@{/login}" th:method="post">
-        <table border="1" class="Area_register_table">
+        <table border="0" class="Area_login_table">
             <tr>
                 <td class="head">ID</td>
                 <td class="body">
-                    <input type="text" id="loginId" name="loginId" size="16">
+                    <input type="text" id="loginId" name="loginId" size="32">
                 </td>
             </tr>
             <tr>
-                <td class="head">パスワード</td>
+                <td class="head">PASSWORD</td>
                 <td class="body">
-                    <input type="password" id="password" name="password" size="64">
+                    <input type="password" id="password" name="password" size="32">
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <button type="submit">送信</button>
-                    <button type="reset">リセット</button>
+                <td></td>
+                <td class="body">
+                    <button type="submit">ログイン</button>
                 </td>
             </tr>
         </table>
     </form>
+
+    <div class="link">
+        <a th:href="@{/registration}">ユーザー登録ページ</a>
+    </div>
+
 </div>
 
-<div class="Link_test">
-    <a th:href="@{/registration}">ユーザ登録ページ(仮)</a>
-</div>
+<!--<div class="Area_login">-->
+<!--    <form th:action="@{/login}" th:method="post">-->
+<!--        <div class="Area_input_id">-->
+<!--            <div class="Area_input_left">-->
+<!--                ID-->
+<!--            </div>-->
+<!--            <div class="Area_input_center">-->
+<!--                <input type="text" id="loginId" name="loginId" size="32">-->
+<!--            </div>-->
+<!--            <div class="Area_input_right">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="Area_input_password">-->
+<!--            <div class="Area_input_left">-->
+<!--                PASSWORD-->
+<!--            </div>-->
+<!--            <div class="Area_input_center">-->
+<!--              <input type="password" id="password" name="password" size="32">-->
+<!--            </div>-->
+<!--            <div class="Area_input_right">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <button type="submit">ログイン</button>-->
+<!--        </div>-->
+<!--    </form>-->
+
+<!--    <div class="link">-->
+<!--        <a th:href="@{/registration}">ユーザー登録ページ</a>-->
+<!--    </div>-->
+
+<!--</div>-->
 
 </body>
 </html>
