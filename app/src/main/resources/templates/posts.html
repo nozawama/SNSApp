@@ -4,44 +4,44 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:href=@{/css/style_posts.css} rel="stylesheet" type="text/css">
+    <script src="js/posts.js"></script>
     <title>SampleSNS</title>
 </head>
 <body>
 
-    <header class="Area_header">SNSApp</header>
+    <header class="areaHeader">SNSApp</header>
 
-    <div class="Area_posts">
-        <div class="Area_post" th:each="post:${posts}" th:object="${post}">
-            <div class="Area_post_user">
+    <div class="areaPosts">
+        <div class="areaPost" th:each="post:${posts}" th:object="${post}">
+            <div class="areaPostUser">
                 <div>
                     <img th:src="@{/image/icon.png}" width="50" height="50">
                 </div>
-                <b class="Area_post_user_name" th:text="*{user.name}"></b>
-                <p class="Area_post_user_login_id" th:text="*{user.loginId}"></p>
+                <b class="areaPostUserName" th:text="*{user.name}"></b>
+                <p class="areaPostUserLoginId" th:text="*{user.loginId}"></p>
             </div>
-            <div class="Area_post_comment">
-                <p class="Area_post_comment_detail" th:text="*{comment}"></p>
-                <div class="Area_post_information">
-                    <p class="Area_post_create_at" th:text="*{createAt}"></p>
-                    <button class="Button_post_delete" th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
+            <div class="areaPostComment">
+                <p class="areaPostDetail" th:text="*{comment}"></p>
+                <div class="areaPostInformation">
+                    <p class="areaPostCreateAt" th:text="*{createAt}"></p>
+                    <button class="buttonPostDelete" th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="Area_login_user">
-        <div class="Image_login_user">
+    <div class="areaLoginUser">
+        <div class="ImageLoginUser">
             <img th:src="@{/image/icon.png}" width="90" height="90">
         </div>
-        <div class="Area_login_user_profile">
-            <b class="Area_login_user_name" th:text="${user.name}"></b>
-            <p class="Area_login_user_login_id" th:text="${user.loginId}"></p>
+        <div class="areaLoginUserProfile">
+            <b class="areaLoginUserName" th:text="${user.name}"></b>
+            <p class="areaLoginUserLoginId" th:text="${user.loginId}"></p>
         </div>
-        <div class="Logout_link">
+        <div class="logoutLink">
             <a th:href="@{/logout}">ログアウト(仮)</a>
-<!--            <button type="submit" th:onclick="@{/logout}">ログアウト</button>-->
         </div>
-        <div class="Area_input_post">
+        <div class="areaInputPost">
             <form th:action="${user} ? @{/post} : @{/}" th:method="post">
                 <input th:if="${user}" type="hidden" name="user" th:value="${user.userId}">
                 <textarea name="comment" rows="4" cols="40" placeholder="投稿内容を入力"></textarea>
