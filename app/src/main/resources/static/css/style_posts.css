@@ -1,4 +1,6 @@
 .areaPosts {
+    width: 600px;
+    height: 750px;
     float: left;
 }
 
@@ -7,6 +9,10 @@
     height: 150px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.areaPost.is_hidden {
+    display: none;
 }
 
 .areaPostUser {
@@ -48,6 +54,10 @@
     position: absolute;
     right: 0px;
     bottom: 12px;
+}
+
+.buttonMore {
+    text-align: center;
 }
 
 .areaPostCreateAt {

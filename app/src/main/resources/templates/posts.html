@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:href=@{/css/style_posts.css} rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/posts.js"></script>
     <title>SampleSNS</title>
 </head>
@@ -14,7 +15,7 @@
     <div class="areaPosts">
         <div class="areaPost" th:each="post:${posts}" th:object="${post}">
             <div class="areaPostUser">
-                <div>
+                <div
                     <img th:src="@{/image/icon.png}" width="50" height="50">
                 </div>
                 <b class="areaPostUserName" th:text="*{user.name}"></b>
@@ -27,6 +28,9 @@
                     <button class="buttonPostDelete" th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
                 </div>
             </div>
+        </div>
+        <div class="buttonMore">
+            <button>さらに表示する</button>
         </div>
     </div>
 
