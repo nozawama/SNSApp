@@ -5,8 +5,8 @@ window.onload = function() {
 }
 
 $(document).on('click', '.Button_more button', function() {
-    $('.Area_post.is_hidden').slice(0, moreNum).removeClass('is_hidden');
-    if ($('.Area_post.is_hidden').length == 0) {
+    $('.areaPost.is_hidden').slice(0, moreNum).removeClass('is_hidden');
+    if ($('.areaPost.is_hidden').length == 0) {
         $('.Button_more').remove();
     }
 });
