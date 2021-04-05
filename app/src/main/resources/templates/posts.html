@@ -15,7 +15,7 @@
     <div class="areaPosts">
         <div class="areaPost" th:each="post:${posts}" th:object="${post}">
             <div class="areaPostUser">
-                <div
+                <div>
                     <img th:src="@{/image/icon.png}" width="50" height="50">
                 </div>
                 <b class="areaPostUserName" th:text="*{user.name}"></b>
