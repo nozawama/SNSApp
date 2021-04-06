@@ -2,6 +2,7 @@
     width: 600px;
     height: 750px;
     float: left;
+    overflow: auto;
 }
 
 .areaPost {
@@ -56,7 +57,7 @@
     bottom: 12px;
 }
 
-.buttonMore {
+.areaButtonMore {
     text-align: center;
 }
 
@@ -78,10 +79,6 @@
 }
 
 .areaLoginUserProfile {
-    float: left;
-    display: inline-block;
-    text-align: right;
-    width: 200px;
     height: 50px;
     margin-bottom: 5px;
 }
@@ -95,10 +92,7 @@
 }
 
 .logoutLink {
-    display: inline-block;
-    width: 200px;
     height: 50px;
-    text-align: left;
     vertical-align: middle;
 }
 

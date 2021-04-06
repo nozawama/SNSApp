@@ -16,7 +16,7 @@
         <div class="areaPost" th:each="post:${posts}" th:object="${post}">
             <div class="areaPostUser">
                 <div>
-                    <img th:src="@{/image/icon.png}" width="50" height="50">
+                    <img th:src="@{/image/icon.png}" width="45" height="40">
                 </div>
                 <b class="areaPostUserName" th:text="*{user.name}"></b>
                 <p class="areaPostUserLoginId" th:text="*{user.loginId}"></p>
@@ -29,21 +29,23 @@
                 </div>
             </div>
         </div>
-        <div class="buttonMore">
-            <button>さらに表示する</button>
+        <div class="areaButtonMore">
+            <button class="buttonMore">さらに表示する</button>
         </div>
     </div>
 
     <div class="areaLoginUser">
         <div class="ImageLoginUser">
-            <img th:src="@{/image/icon.png}" width="90" height="90">
+            <img th:src="@{/image/icon.png}" width="90" height="80">
         </div>
-        <div class="areaLoginUserProfile">
-            <b class="areaLoginUserName" th:text="${user.name}"></b>
-            <p class="areaLoginUserLoginId" th:text="${user.loginId}"></p>
-        </div>
-        <div class="logoutLink">
-            <a th:href="@{/logout}">ログアウト(仮)</a>
+        <div style="display: flex; justify-content: center">
+            <div class="areaLoginUserProfile">
+                <b class="areaLoginUserName" th:text="${user.name}"></b>
+                <p class="areaLoginUserLoginId" th:text="${user.loginId}"></p>
+            </div>
+            <div class="logoutLink">
+                <a th:href="@{/logout}">ログアウト(仮)</a>
+            </div>
         </div>
         <div class="areaInputPost">
             <form th:action="${user} ? @{/post} : @{/}" th:method="post">
