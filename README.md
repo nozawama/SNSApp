@@ -12,7 +12,7 @@ SNSをイメージしたwebアプリケーションです。
     cd /SNSApp/docker-compose
     dokcer-compose up -d
     cd /SNSApp/app
-    gradle bootrun
+    ./gradlew bootrun
 "localhost:8080" からアクセス出来ます。
 
  ### 3. 補足
