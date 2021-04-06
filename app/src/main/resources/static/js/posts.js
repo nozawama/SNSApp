@@ -1,12 +1,19 @@
 var moreNum = 5;
 
 window.onload = function() {
-    $('.areaPost:nth-child(n + ' + (moreNum + 1) + ')').addClass('is_hidden');
+    var list_post = document.getElementsByClassName("areaPost");
+    for(var i = moreNum; i < list.length; i++) {
+        list_post.item(i).classList.add("is_hidden");
+    }
 }
 
-$(document).on('click', '.buttonMore',　function() {
-    $('.areaPost.is_hidden').slice(0, moreNum).removeClass('is_hidden');
-    if ($('.areaPost.is_hidden').length == 0) {
-        $('.buttonMore').remove();
+document.getElementById("buttonMore").onclick = function () {
+    var list_hidden = document.getElementsByClassName("is_hidden");
+    for(var i = 0; i < moreNum; i++) {
+        if(list_hidden.length > 0) list_hidden.item(0).classList.remove("is_hidden");
+        else break;
     }
-});
+    if (list_hidden.length == 0) {
+        document.getElementById("buttonMore").remove();
+    }
+}
