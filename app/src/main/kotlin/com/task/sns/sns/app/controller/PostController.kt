@@ -27,11 +27,7 @@ class PostController {
             )
         )
 
-        model.addAttribute("posts", postRepository.findAll().sortedByDescending { it.createAt })
-
-        model.addAttribute("user", userDetailsImpl.user)
-
-        return "posts"
+        return "redirect:/post"
     }
 
     @GetMapping("/post")
