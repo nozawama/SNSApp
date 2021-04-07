@@ -37,14 +37,14 @@
         <div class="ImageLoginUser">
             <img th:src="@{/image/icon.png}" width="90" height="80">
         </div>
-        <div style="display: flex; justify-content: center">
+        <div style="display: flex; justify-content: center; align-items: center">
             <div class="areaLoginUserProfile">
                 <b class="areaLoginUserName" th:text="${user.name}"></b>
                 <p class="areaLoginUserLoginId" th:text="${user.loginId}"></p>
             </div>
-            <div class="logoutLink">
-                <a th:href="@{/logout}">ログアウト(仮)</a>
-            </div>
+            <form th:action="@{/logout}" th:method="post">
+                <button id="buttonLogout" type="submit">ログアウト</button>
+            </form>
         </div>
         <div class="areaInputPost">
             <form th:action="${user} ? @{/post} : @{/}" th:method="post">
