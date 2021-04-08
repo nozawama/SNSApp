@@ -2,3 +2,16 @@
     width: max-content;
     margin: auto;
 }
+
+.areaButtons {
+    text-align: center;
+    letter-spacing: 20px;
+}
+
+.areaButtons button {
+    width: 72px;
+}
+
+.linkLogin {
+    text-align: center;
+}

@@ -2,3 +2,15 @@
     width: max-content;
     margin: auto;
 }
+
+.areaButton {
+    text-align: center;
+}
+
+.areaButton button {
+    width: 72px;
+}
+
+.linkRegistration {
+    text-align: center;
+}

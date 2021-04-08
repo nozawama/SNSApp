@@ -5,6 +5,7 @@
     <link th:href=@{/css/style_registration.css} rel="stylesheet" type="text/css">
     <title>Registration</title>
 </head>
+
 <body>
 
     <header class="areaHeader">ユーザ登録</header>
@@ -39,16 +40,16 @@
                 <tr>
                     <td></td>
                     <td>
-                        <div style="text-align: center; letter-spacing: 20px">
-                            <button id="buttonSubmit" type="submit" style="width: 72px">送信</button>
-                            <button type="reset" style="width: 72px">リセット</button>
+                        <div class="areaButtons">
+                            <button id="buttonSubmit" type="submit">送信</button>
+                            <button id="buttonReset" type="reset">リセット</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <div style="text-align: center">
+                        <div class="linkLogin">
                             <a th:href="@{/}">ログインページ</a>
                         </div>
                     </td>
@@ -56,7 +57,9 @@
             </table>
         </form>
     </div>
+
 </body>
 
 <script src="js/registration.js"></script>
+
 </html>
