@@ -37,6 +37,8 @@
 .areaPostDetail {
     width: 320px;
     height: 100px;
+    overflow: auto;
+    overflow-wrap: break-word;
     border: solid;
     border-radius: 8px;
     margin-top: 0px;
