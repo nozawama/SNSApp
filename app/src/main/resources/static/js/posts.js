@@ -21,20 +21,22 @@ document.getElementById("buttonMore").onclick = function () {
     }
 }
 
-function likePost(userId, postId) {
+function likePost(postId, headerName, token) {
     var request = new XMLHttpRequest();
     request.open("POST", "http://localhost:8080/api/v1/post/like", true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    var param = "userId=" + userId + "&postId=" + postId;
+    request.setRequestHeader(headerName, token);
+    var param = "postId=" + postId;
     request.send(param);
     document.getElementById("formPostLike").submit();
 }
 
-function unLikePost(userId, postId) {
+function unLikePost(postId, headerName, token) {
     var request = new XMLHttpRequest();
-    var url = "http://localhost:8080/api/v1/post/unlike/" + userId + "/" + postId;
+    var url = "http://localhost:8080/api/v1/post/unlike/" + postId;
     request.open("DELETE", url, true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.setRequestHeader(headerName, token);
     request.send(url);
     document.getElementById("formPostLike").submit();
 }

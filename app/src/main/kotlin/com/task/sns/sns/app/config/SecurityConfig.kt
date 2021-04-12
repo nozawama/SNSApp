@@ -29,8 +29,7 @@ class SecurityConfig @Autowired constructor(private val userRepository: UserRepo
         // セキュリティ設定を無視
         web.ignoring().antMatchers(
             "/css/**",
-            "/js/**",
-            "/api/**"
+            "/js/**"
         )
     }
 
