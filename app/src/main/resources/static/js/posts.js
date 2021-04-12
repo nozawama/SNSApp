@@ -28,7 +28,6 @@ function likePost(userId, postId) {
     var param = "userId=" + userId + "&postId=" + postId;
     request.send(param);
     document.getElementById("formPostLike").submit();
-    console.log(param);
 }
 
 function unLikePost(userId, postId) {
@@ -38,5 +37,4 @@ function unLikePost(userId, postId) {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(url);
     document.getElementById("formPostLike").submit();
-    console.log(url);
 }
