@@ -2,37 +2,56 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href=@{/css/style_registration.css} rel="stylesheet" type="text/css">
     <title>Registration</title>
 </head>
+
 <body>
 
     <header class="areaHeader">ユーザ登録</header>
 
     <div class="areaResister">
-        <form th:action="@{/registration}" th:method="post">
-            <table border="1" class="areaResisterTable">
+        <form id="formRegister" th:action="@{/registration}" th:method="post">
+            <table border="0" class="areaResisterTable">
                 <tr>
                     <td class="head">名前</td>
                     <td class="body">
-                        <input type="text" name="name" size="50">
+                        <input type="text" name="name" size="32">
                     </td>
                 </tr>
                 <tr>
                     <td class="head">ID</td>
                     <td class="body">
-                        <input type="text" name="loginId" size="16">
+                        <input type="text" name="loginId" size="32">
                     </td>
                 </tr>
                 <tr>
                     <td class="head">パスワード</td>
                     <td class="body">
-                        <input type="text" name="password" size="64">
+                        <input type="password" name="password" size="32">
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <button type="submit">送信</button>
-                        <button type="reset">リセット</button>
+                    <td class="head">パスワード(確認用)</td>
+                    <td class="body">
+                        <input type="password" name="passwordConfirm" size="32">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="areaButtons">
+                            <button id="buttonSubmit" type="submit">送信</button>
+                            <button id="buttonReset" type="reset">リセット</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="linkLogin">
+                            <a th:href="@{/}">ログインページ</a>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -40,4 +59,7 @@
     </div>
 
 </body>
+
+<script src="js/registration.js"></script>
+
 </html>

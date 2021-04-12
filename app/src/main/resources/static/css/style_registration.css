@@ -1,16 +1,17 @@
-.areaLogin {
+.areaResister {
     width: max-content;
     margin: auto;
 }
 
-.areaButton {
+.areaButtons {
     text-align: center;
+    letter-spacing: 20px;
 }
 
-.areaButton button {
+.areaButtons button {
     width: 72px;
 }
 
-.linkRegistration {
+.linkLogin {
     text-align: center;
 }

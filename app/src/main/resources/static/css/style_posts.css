@@ -37,6 +37,8 @@
 .areaPostDetail {
     width: 400px;
     height: 100px;
+    overflow: auto;
+    overflow-wrap: break-word;
     border: solid;
     border-radius: 8px;
     margin-top: 0px;
@@ -79,7 +81,7 @@
     margin-bottom: 0px;
 }
 
-.areaLoginUser {
+.areaLoginUserMenu {
     display: inline-block;
     width: 400px;
     height: 400px;
@@ -87,6 +89,12 @@
 
 .ImageLoginUser {
     text-align: center;
+}
+
+.areaLoginUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .areaLoginUserProfile {
