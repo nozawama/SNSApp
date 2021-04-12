@@ -27,15 +27,21 @@
             <tr>
                 <td></td>
                 <td class="body">
-                    <button type="submit">ログイン</button>
+                    <div class="areaButton">
+                        <button id="buttonLogin" type="submit">ログイン</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="linkRegistration">
+                        <a th:href="@{/registration}">ユーザー登録ページ</a>
+                    </div>
                 </td>
             </tr>
         </table>
     </form>
-
-    <div class="link">
-        <a th:href="@{/registration}">ユーザー登録ページ</a>
-    </div>
 
 </div>
 
