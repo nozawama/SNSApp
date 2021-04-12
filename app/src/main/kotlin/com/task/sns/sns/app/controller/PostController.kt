@@ -43,6 +43,8 @@ class PostController {
 
         model.addAttribute("likes", likeRepository.findPostIdByUserId(userDetailsImpl.user.userId))
 
+        model.addAttribute("count", likeRepository.findAll().groupingBy { it.postId }.eachCount())
+
         return "posts"
     }
 
