@@ -24,7 +24,10 @@
                 <p class="areaPostDetail" th:text="*{comment}"></p>
                 <div class="areaPostInformation">
                     <p class="areaPostCreateAt" th:text="*{createAt}"></p>
-                    <button class="buttonPostLike" th:if="${#lists.contains(likes, post.postId)}" type="submit">いいね</button>
+                    <form id="formPostLike" th:action="@{/post}">
+                        <button id="buttonPostLike" th:if="${!#lists.contains(likes, post.postId)}" type="button" th:onclick="'likePost(\'' + ${user.userId} + '\', \'' + ${post.postId} + '\');'">いいね</button>
+                        <button id="buttonPostUnlike" th:if="${#lists.contains(likes, post.postId)}" type="button" th:onclick="'unLikePost(\'' + ${user.userId} + '\', \'' + ${post.postId} + '\');'">解除</button>
+                    </form>
                     <button class="buttonPostDelete" th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
                 </div>
             </div>

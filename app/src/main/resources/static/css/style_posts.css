@@ -45,22 +45,18 @@
 
 .areaPostInformation {
     /*position: relative;*/
-    text-align: right;
+    text-align: left;
     width: 320px;
     height: 40px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.buttonPostLike {
-    /*position: absolute;*/
+#formPostLike {
     display: inline-block;
-    right: 0px;
-    bottom: 12px;
 }
 
-.buttonPostDelete {
-    /*position: absolute;*/
+#formPostLike button {
     display: inline-block;
     right: 0px;
     bottom: 12px;

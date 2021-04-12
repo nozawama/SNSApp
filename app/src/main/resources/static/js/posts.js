@@ -13,10 +13,30 @@ window.onload = function() {
 document.getElementById("buttonMore").onclick = function () {
     var list_hidden = document.getElementsByClassName("is_hidden");
     for(var i = 0; i < moreNum; i++) {
-        if(list_hidden.length > 0) list_hidden.item(0).classList.remove("is_hidden");
+        if (list_hidden.length > 0) list_hidden.item(0).classList.remove("is_hidden");
         else break;
-    
+    }
     if (list_hidden.length == 0) {
         document.getElementById("buttonMore").remove();
     }
+}
+
+function likePost(userId, postId) {
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:8080/api/v1/post/like", true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var param = "userId=" + userId + "&postId=" + postId;
+    request.send(param);
+    document.getElementById("formPostLike").submit();
+    console.log(param);
+}
+
+function unLikePost(userId, postId) {
+    var request = new XMLHttpRequest();
+    var url = "http://localhost:8080/api/v1/post/unlike/" + userId + "/" + postId;
+    request.open("DELETE", url, true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(url);
+    document.getElementById("formPostLike").submit();
+    console.log(url);
 }
