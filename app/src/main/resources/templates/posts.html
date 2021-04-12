@@ -24,6 +24,7 @@
                 <p class="areaPostDetail" th:text="*{comment}"></p>
                 <div class="areaPostInformation">
                     <p class="areaPostCreateAt" th:text="*{createAt}"></p>
+                    <button class="buttonPostLike" th:if="${#lists.contains(likes, post.postId)}" type="submit">いいね</button>
                     <button class="buttonPostDelete" th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
                 </div>
             </div>

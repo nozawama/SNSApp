@@ -44,15 +44,24 @@
 }
 
 .areaPostInformation {
-    position: relative;
+    /*position: relative;*/
+    text-align: right;
     width: 320px;
     height: 40px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
+.buttonPostLike {
+    /*position: absolute;*/
+    display: inline-block;
+    right: 0px;
+    bottom: 12px;
+}
+
 .buttonPostDelete {
-    position: absolute;
+    /*position: absolute;*/
+    display: inline-block;
     right: 0px;
     bottom: 12px;
 }
@@ -62,8 +71,9 @@
 }
 
 .areaPostCreateAt {
-    position: absolute;
-    right: 48px;
+    /*position: absolute;*/
+    /*right: 48px;*/
+    display: inline-block;
     margin-top: 0px;
     margin-bottom: 0px;
 }
