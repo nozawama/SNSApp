@@ -16,7 +16,7 @@ class LikeController {
     lateinit var likeRepository: LikeRepository
 
     @PostMapping("/post/like")
-    fun likePost(@ModelAttribute likeRequest:LikeRequest, model: Model): Like {
+    fun likePost(@ModelAttribute likeRequest: LikeRequest, model: Model): Like {
         return likeRepository.save(
             Like(
                 likeRequest.likeId,
