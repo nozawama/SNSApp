@@ -9,6 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*;
+import javax.transaction.Transactional
 
 @Controller
 class PostController {
@@ -38,6 +39,14 @@ class PostController {
         model.addAttribute("user", userDetailsImpl.user)
 
         return "posts"
+    }
+
+    @GetMapping("/post/delete/{id}")
+    fun deletePost(@AuthenticationPrincipal userDetailsImpl: UserDetailsImpl, @PathVariable id: Int): String {
+        if(postRepository.existsById(id) && postRepository.findById(id).get().user.userId == userDetailsImpl.user.userId) {
+            postRepository.deleteById(id)
+        }
+        return "redirect:/post"
     }
 
 }

@@ -24,12 +24,14 @@
                 <p class="areaPostDetail" th:text="*{comment}"></p>
                 <div class="areaPostInformation">
                     <p class="areaPostCreateAt" th:text="*{createAt}"></p>
-                    <button class="buttonPostDelete" th:if="${user.userId}==${post.user.userId}" type="delete">削除</button>
+                    <form th:action="@{'/post/delete/' + *{postId}}" method="get">
+                        <button class="buttonPostDelete" th:if="${user.userId}==${post.user.userId}" type="submit">削除</button>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="areaButtonMore">
-            <button id="buttonMore">さらに表示する</button>
+            <button id="buttonMore" type="button">さらに表示する</button>
         </div>
     </div>
 
