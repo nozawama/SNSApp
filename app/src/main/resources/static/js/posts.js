@@ -23,6 +23,11 @@ document.getElementById("buttonMore").onclick = function () {
 
 function likePost(postId, headerName, token) {
     var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 409) {
+            alert("既にいいねしています")
+        }
+    }
     request.open("POST", "http://localhost:8080/api/v1/post/like", true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.setRequestHeader(headerName, token);
