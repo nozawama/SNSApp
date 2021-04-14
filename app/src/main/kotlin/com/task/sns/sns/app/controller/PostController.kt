@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.*;
-import javax.transaction.Transactional
+import org.springframework.web.bind.annotation.*
 
 @Controller
 class PostController {
-
     @Autowired
     lateinit var postRepository: PostRepository
 
@@ -33,7 +31,6 @@ class PostController {
 
     @GetMapping("/post")
     fun getPostList(@AuthenticationPrincipal userDetailsImpl: UserDetailsImpl, model: Model) : String {
-
         model.addAttribute("posts", postRepository.findAll().sortedByDescending { it.createAt })
 
         model.addAttribute("user", userDetailsImpl.user)
@@ -43,11 +40,11 @@ class PostController {
 
     @PostMapping("/post/delete")
     fun deletePost(@AuthenticationPrincipal userDetailsImpl: UserDetailsImpl, @ModelAttribute postRequest: PostRequest): String {
-        var post = postRepository.findById(postRequest.postId)
+        val post = postRepository.findById(postRequest.postId)
         if(post.isPresent && post.get().user.userId == userDetailsImpl.user.userId) {
             postRepository.deleteById(postRequest.postId)
         }
+
         return "redirect:/post"
     }
-
 }
