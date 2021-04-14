@@ -41,10 +41,11 @@ class PostController {
         return "posts"
     }
 
-    @GetMapping("/post/delete/{id}")
-    fun deletePost(@AuthenticationPrincipal userDetailsImpl: UserDetailsImpl, @PathVariable id: Int): String {
-        if(postRepository.existsById(id) && postRepository.findById(id).get().user.userId == userDetailsImpl.user.userId) {
-            postRepository.deleteById(id)
+    @PostMapping("/post/delete")
+    fun deletePost(@AuthenticationPrincipal userDetailsImpl: UserDetailsImpl, @ModelAttribute postRequest: PostRequest): String {
+        var post = postRepository.findById(postRequest.postId)
+        if(post.isPresent && post.get().user.userId == userDetailsImpl.user.userId) {
+            postRepository.deleteById(postRequest.postId)
         }
         return "redirect:/post"
     }
