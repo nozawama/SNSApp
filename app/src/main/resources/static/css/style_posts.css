@@ -64,6 +64,10 @@
     bottom: 12px;
 }
 
+#formPostDelete {
+    display: inline-block;
+}
+
 .areaButtonMore {
     text-align: center;
 }
@@ -72,10 +76,7 @@
     width: auto;
 }
 
-/*.areaPostCreateAt {*/
 .areaPostInformation p {
-    /*position: absolute;*/
-    /*right: 48px;*/
     display: inline-block;
     margin-top: 0px;
     margin-bottom: 0px;
