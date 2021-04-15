@@ -17,10 +17,6 @@ data class Post(
     @ManyToOne
     var user: User,
 
-//    @field:NotNull
-//    @Column(name = "user_id", columnDefinition = "INT UNSIGNED")
-//    var userId: Int = 0,
-
     @field:NotBlank
     @Column(columnDefinition = "VARCHAR(140)", nullable = false)
     var comment: String = "",
