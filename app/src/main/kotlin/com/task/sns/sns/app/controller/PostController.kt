@@ -3,6 +3,7 @@ package com.task.sns.sns.app.controller
 import com.task.sns.sns.app.request.PostRequest
 import com.task.sns.sns.app.service.UserDetailsImpl
 import com.task.sns.sns.domain.entity.Post
+import com.task.sns.sns.domain.repository.LikeRepository
 import com.task.sns.sns.domain.repository.PostRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.annotation.AuthenticationPrincipal
@@ -15,8 +16,11 @@ class PostController {
     @Autowired
     lateinit var postRepository: PostRepository
 
+    @Autowired
+    lateinit var likeRepository: LikeRepository
+
     @PostMapping("/post")
-    fun createPost(@AuthenticationPrincipal userDetailsImpl: UserDetailsImpl, @ModelAttribute postRequest: PostRequest, model: Model): String {
+    fun createPost(@ModelAttribute postRequest: PostRequest, model: Model): String {
         postRepository.save(
             Post(
                 postRequest.postId,
@@ -34,6 +38,10 @@ class PostController {
         model.addAttribute("posts", postRepository.findAll().sortedByDescending { it.createAt })
 
         model.addAttribute("user", userDetailsImpl.user)
+
+        model.addAttribute("likes", likeRepository.findPostIdByUserId(userDetailsImpl.user.userId))
+
+        model.addAttribute("count", likeRepository.findAll().groupingBy { it.postId }.eachCount())
 
         return "posts"
     }

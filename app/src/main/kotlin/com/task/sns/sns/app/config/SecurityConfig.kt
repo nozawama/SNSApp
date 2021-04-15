@@ -35,7 +35,7 @@ class SecurityConfig @Autowired constructor(private val userRepository: UserRepo
 
     override fun configure(http: HttpSecurity) {
         // 認可の設定
-        http.authorizeRequests().antMatchers("/", "/index", "/registration").permitAll() // login, registrationはアクセス許可
+        http.authorizeRequests().antMatchers("/", "/index", "/registration", "/api/**").permitAll() // login, registrationはアクセス許可
             .anyRequest().authenticated() // その他は認証無しの場合アクセス不可
 
         http.formLogin() // フォームログインの有効化

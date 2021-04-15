@@ -1,12 +1,12 @@
 .areaPosts {
-    width: 600px;
+    width: 640px;
     height: 750px;
     float: left;
     overflow: auto;
 }
 
 .areaPost {
-    width: 600px;
+    width: 640px;
     height: 150px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -30,12 +30,12 @@
 .areaPostComment {
     display: inline-block;
     vertical-align: top;
-    width: 320px;
+    width: 400px;
     height: 150px;
 }
 
 .areaPostDetail {
-    width: 320px;
+    width: 400px;
     height: 100px;
     overflow: auto;
     overflow-wrap: break-word;
@@ -46,15 +46,20 @@
 }
 
 .areaPostInformation {
-    position: relative;
-    width: 320px;
+    /*position: relative;*/
+    text-align: left;
+    width: auto;
     height: 40px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.buttonPostDelete {
-    position: absolute;
+#formPostLike {
+    display: inline-block;
+}
+
+#formPostLike button {
+    display: inline-block;
     right: 0px;
     bottom: 12px;
 }
@@ -63,9 +68,15 @@
     text-align: center;
 }
 
-.areaPostCreateAt {
-    position: absolute;
-    right: 48px;
+.areaPostInformation {
+    width: auto;
+}
+
+/*.areaPostCreateAt {*/
+.areaPostInformation p {
+    /*position: absolute;*/
+    /*right: 48px;*/
+    display: inline-block;
     margin-top: 0px;
     margin-bottom: 0px;
 }

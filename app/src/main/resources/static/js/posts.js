@@ -20,3 +20,28 @@ document.getElementById("buttonMore").onclick = function () {
         document.getElementById("buttonMore").remove();
     }
 }
+
+function likePost(postId, headerName, token) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 409) {
+            alert("既にいいねしています")
+        }
+    }
+    request.open("POST", "http://localhost:8080/api/v1/post/like", true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.setRequestHeader(headerName, token);
+    var param = "postId=" + postId;
+    request.send(param);
+    document.getElementById("formPostLike").submit();
+}
+
+function unLikePost(postId, headerName, token) {
+    var request = new XMLHttpRequest();
+    var url = "http://localhost:8080/api/v1/post/unlike/" + postId;
+    request.open("DELETE", url, true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.setRequestHeader(headerName, token);
+    request.send(url);
+    document.getElementById("formPostLike").submit();
+}
