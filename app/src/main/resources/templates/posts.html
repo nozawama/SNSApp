@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <header class="areaHeader">SNSApp</header>
+    <h3 class="areaHeader">SNSApp</h3>
 
     <div class="areaPosts">
         <div class="areaPost" th:each="post:${posts}" th:object="${post}">
@@ -23,7 +23,7 @@
             <div class="areaPostComment">
                 <p class="areaPostDetail" th:text="*{comment}"></p>
                 <div class="areaPostInformation">
-                    <p class="areaPostCreateAt" th:text="*{createAt}"></p>
+                    <p class="areaPostCreateAt" th:text="${#dates.format(post.createAt, 'yyyy/MM/dd HH:mm:ss')}"></p>
                     <p class="areaPostLikeCount" th:if="${count.get(post.postId)!=null}" th:text="'いいね: ' + ${count.get(post.postId)}"></p>
                     <p class="areaPostLikeCount" th:if="${count.get(post.postId)==null}" th:text="'いいね: 0'"></p>
                     <form id="formPostLike" th:action="@{/post}">
